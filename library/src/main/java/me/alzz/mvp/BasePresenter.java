@@ -1,7 +1,9 @@
 package me.alzz.mvp;
 
+import android.content.Context;
 import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 /**
  * Presenter 基类
@@ -19,6 +21,15 @@ public class BasePresenter<T extends IView> implements IPresenter {
             mView = (T) view;
         } catch (ClassCastException e) {
             mView = null;
+        }
+    }
+
+    @Nullable
+    public Context getContext() {
+        if (mView != null) {
+            return mView.getContext();
+        } else {
+            return null;
         }
     }
 
