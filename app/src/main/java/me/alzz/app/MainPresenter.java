@@ -17,5 +17,8 @@ public class MainPresenter extends BasePresenter<IMainView> {
         } else {
             mView.showMsg(msg);
         }
+
+        mView = null;
+        mView.showMsg(msg);
     }
 }

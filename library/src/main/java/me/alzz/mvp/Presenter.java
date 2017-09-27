@@ -46,7 +46,7 @@ public class Presenter {
                 // 如果是 IPresenter 成员变量，则自动绑定
                 Class<?> clazz = f.getType();
                 if (IPresenter.class.isAssignableFrom(clazz)) {
-                    IPresenter presenter = sFactory.newPresenter(clazz);
+                    IPresenter presenter = sFactory.newPresenter(view.getContext(), clazz);
                     if (presenter == null) {
                         continue;
                     }
