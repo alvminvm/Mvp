@@ -46,11 +46,23 @@ public class Presenter {
                 // 如果是 IPresenter 成员变量，则自动绑定
                 Class<?> clazz = f.getType();
                 if (IPresenter.class.isAssignableFrom(clazz)) {
+                    // 检查是否已经赋值
+                    try {
+                        f.setAccessible(true);
+                        IPresenter presenter = (IPresenter) f.get(view);
+                        if (presenter != null) {
+                            presenter.onAttach(view);
+                            continue;
+                        }
+                    } catch (IllegalAccessException e) {
+                        // ignore
+                    }
+
+                    // 构造 Presenter
                     IPresenter presenter = sFactory.newPresenter(view.getContext(), clazz);
                     if (presenter == null) {
                         continue;
                     }
-
                     presenter.onAttach(view);
 
                     // 对成员变量赋值

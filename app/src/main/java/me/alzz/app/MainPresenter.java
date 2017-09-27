@@ -11,14 +11,6 @@ public class MainPresenter extends BasePresenter<IMainView> {
     public void queryMsg() {
         // may be query from db or network
         String msg = "msg from query";
-
-        if (mView == null) {
-            // log or ignore
-        } else {
-            mView.showMsg(msg);
-        }
-
-        mView = null;
         mView.showMsg(msg);
     }
 }

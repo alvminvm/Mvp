@@ -9,7 +9,7 @@ public class MainActivity extends BaseMvpActivity implements IMainView {
 
     private TextView mMsgTv;
 
-    private MainPresenter mMainPresenter;
+    private MainPresenter mMainPresenter = new MainPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
