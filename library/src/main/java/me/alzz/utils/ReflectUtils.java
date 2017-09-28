@@ -65,9 +65,16 @@ public class ReflectUtils {
                 Enumeration<String> entries = dexFile.entries();
                 while (entries.hasMoreElements()) {
                     entry = entries.nextElement();
+                    if (entry.contains("$")) {
+                        // 忽略内部类
+                        continue;
+                    }
 
                     if (entry.contains(pkgName)) {
                         Class<?> clazz = dexFile.loadClass(entry, classLoader);
+                        if (clazz == null) {
+                            continue;
+                        }
 
                         if (baseClass != null) {
                             if (baseClass.isAssignableFrom(clazz)) {
