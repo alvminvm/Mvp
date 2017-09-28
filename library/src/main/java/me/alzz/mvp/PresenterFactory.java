@@ -2,8 +2,6 @@ package me.alzz.mvp;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.support.v4.util.ArrayMap;
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.dx.stock.ProxyBuilder;
