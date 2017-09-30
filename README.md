@@ -8,17 +8,17 @@
 1. 添加 jitpack 仓库至根目录下的`build.gradle`文件中
 ```gradle
 allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
 }
 ```
 
 2. 添加编译依赖
 ```gradle
 dependencies {
-	compile 'me.alzz:mvp:1.0.3'
+    compile 'me.alzz:mvp:1.0.3'
 }
 ```
 
@@ -47,7 +47,7 @@ public class MainPresenter extends BasePresenter<IMainView> implements IMainPres
     public void queryMsg() {
         // may be query from db or network
         String msg = "msg from query";
-		// ... 
+        // ... 
 
         mView.showMsg(msg);
     }
@@ -60,15 +60,15 @@ public class MainActivity extends BaseMvpActivity implements IMainView {
 
     private TextView mMsgTv;
 
-	// 只需要声明，不需要赋值
+    // 只需要声明，不需要赋值
     MainPresenter mMainPresenter;
-
-	// 或者使用接口，实现类可放至单独的 module 中，编译时引用
-	// IMainPresenter mMainPresenter;
-
-	// 如果自己赋值也是可以的
-	// MainPresenter mMainPresenter = new MainPresenter();
-	// IMainPresenter mMainPresenter = new MainPresenter();
+    
+    // 或者使用接口，实现类可放至单独的 module 中，编译时引用
+    // IMainPresenter mMainPresenter;
+    
+    // 如果自己赋值也是可以的
+    // MainPresenter mMainPresenter = new MainPresenter();
+    // IMainPresenter mMainPresenter = new MainPresenter();
 
 
     @Override
