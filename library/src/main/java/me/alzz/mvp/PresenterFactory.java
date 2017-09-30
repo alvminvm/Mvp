@@ -84,7 +84,7 @@ class PresenterFactory {
                             .handler(mHandler)
                             .build();
 
-                } catch (Exception | Error e) {
+                } catch (Exception e) {
                     Log.e(TAG, "presenter proxy fail. exception: " + e.toString());
                 }
 

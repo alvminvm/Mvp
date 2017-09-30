@@ -65,14 +65,18 @@ public class ReflectUtils {
                 Enumeration<String> entries = dexFile.entries();
                 while (entries.hasMoreElements()) {
                     entry = entries.nextElement();
-                    if (entry.contains("$")) {
+                    if (entry.startsWith("com.android") || entry.startsWith("android")) {
+                        // 忽略 android 包名下的类
+                        continue;
+                    } else if (entry.contains("$")) {
                         // 忽略内部类
                         continue;
                     }
 
                     if (entry.contains(pkgName)) {
                         Class<?> clazz = dexFile.loadClass(entry, classLoader);
-                        if (clazz == null) {
+                        if (clazz == null || clazz.isInterface()) {
+                            // 忽略接口
                             continue;
                         }
 

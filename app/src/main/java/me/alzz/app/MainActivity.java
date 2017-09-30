@@ -9,7 +9,15 @@ public class MainActivity extends BaseMvpActivity implements IMainView {
 
     private TextView mMsgTv;
 
-    private MainPresenter mMainPresenter = new MainPresenter();
+    // 只需要声明，不需要赋值
+    MainPresenter mMainPresenter;
+
+    // 或者使用接口，实现类可放至单独的 module 中，编译时引用
+    // IMainPresenter mMainPresenter;
+
+    // 如果自己赋值也是可以的
+    // MainPresenter mMainPresenter = new MainPresenter();
+    // IMainPresenter mMainPresenter = new MainPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
