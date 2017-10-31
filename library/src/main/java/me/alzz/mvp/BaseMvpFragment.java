@@ -3,6 +3,7 @@ package me.alzz.mvp;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.CallSuper;
 
 /**
@@ -18,5 +19,14 @@ public class BaseMvpFragment extends Fragment implements IView {
         super.onAttach(activity);
         Presenter.init(activity);
         Presenter.bind(this);
+    }
+
+    @Override
+    public Context getContext() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return getActivity();
+        } else {
+            return super.getContext();
+        }
     }
 }
