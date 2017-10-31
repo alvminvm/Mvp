@@ -1,10 +1,8 @@
 package me.alzz.mvp;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
-import android.os.Build;
 import android.support.annotation.CallSuper;
+import android.support.v4.app.Fragment;
 
 /**
  * mvp简单的Fragment实现类
@@ -15,18 +13,9 @@ public class BaseMvpFragment extends Fragment implements IView {
 
     @CallSuper
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        Presenter.init(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Presenter.init(context);
         Presenter.bind(this);
-    }
-
-    @Override
-    public Context getContext() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return getActivity();
-        } else {
-            return super.getContext();
-        }
     }
 }
