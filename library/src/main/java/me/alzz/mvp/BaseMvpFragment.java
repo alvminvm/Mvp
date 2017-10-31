@@ -1,5 +1,6 @@
 package me.alzz.mvp;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.support.annotation.CallSuper;
@@ -13,9 +14,9 @@ public class BaseMvpFragment extends Fragment implements IView {
 
     @CallSuper
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        Presenter.init(context);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        Presenter.init(activity);
         Presenter.bind(this);
     }
 }
