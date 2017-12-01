@@ -20,7 +20,7 @@ import me.alzz.utils.ReflectUtils;
 
 class PresenterFactory {
 
-    private static final String TAG = "PresenterFactory";
+    private static final String TAG = "mvp";
 
     private List<Class> mPresenterClassList = new ArrayList<>();
 

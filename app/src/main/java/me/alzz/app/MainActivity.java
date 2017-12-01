@@ -2,6 +2,7 @@ package me.alzz.app;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import me.alzz.mvp.BaseMvpActivity;
 
@@ -26,7 +27,11 @@ public class MainActivity extends BaseMvpActivity implements IMainView {
 
         mMsgTv = (TextView) findViewById(R.id.msg_tv);
 
-        mMainPresenter.queryMsg();
+        if (mMainPresenter == null) {
+            Toast.makeText(this, "presenter is null", Toast.LENGTH_LONG).show();
+        } else {
+            mMainPresenter.queryMsg();
+        }
     }
 
     @Override

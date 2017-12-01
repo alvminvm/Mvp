@@ -55,12 +55,14 @@ public class Presenter {
                             continue;
                         }
                     } catch (IllegalAccessException e) {
-                        // ignore
+                        Log.e("mvp", "get presenter exception");
+                        e.printStackTrace();
                     }
 
                     // 构造 Presenter
                     IPresenter presenter = sFactory.newPresenter(view.getContext(), clazz);
                     if (presenter == null) {
+                        Log.e("mvp", "new presenter fail: " + f.getName());
                         continue;
                     }
                     presenter.onAttach(view);
@@ -70,7 +72,8 @@ public class Presenter {
                         f.setAccessible(true);
                         f.set(view, presenter);
                     } catch (IllegalAccessException e) {
-                        Log.e("Presenter", "can't bind presenter: " + f.getName());
+                        Log.e("mvp", "can't bind presenter: " + f.getName());
+                        e.printStackTrace();
                     }
                 }
             }

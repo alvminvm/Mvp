@@ -87,6 +87,13 @@ public class MainActivity extends BaseMvpActivity implements IMainView {
     }
 }
 ```
+## Proguard
+```
+# 保留presenter默认构造函数
+-keepclasseswithmembers class * extends me.alzz.mvp.BasePresenter {
+    public <init>();
+}
+```
 
 ## 致谢
 - [dexmaker](https://github.com/linkedin/dexmaker):A utility for doing compile or runtime code generation targeting Android's Dalvik VM
