@@ -1,6 +1,7 @@
 # Mvp
-
 [![Release](https://jitpack.io/v/me.alzz/mvp.svg)](https://jitpack.io/#me.alzz/mvp)
+
+**Deprecated** using mvvm instead
 
 用于快速引入 MVP 框架至 Android 应用开发中  
 
